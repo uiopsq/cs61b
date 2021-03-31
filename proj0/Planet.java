@@ -1,4 +1,4 @@
-class Planet{
+public class Planet{
     public double xxPos;
     public double yyPos;
     public double xxVel;
@@ -70,7 +70,7 @@ class Planet{
         }
         return Fnet;
     }
-    public double calAccelerate(double F){
+    private double calAccelerate(double F){
         double a=F/this.mass;
         return a;
     }
