@@ -83,7 +83,7 @@ public class LinkedListDeque<T>{
     }
 
     public boolean isEmpty(){
-        if (sentinel.next==null || sentinel.prev==null){return true;}
+        if (sentinel.next==null || sentinel.prev==null||size==0){return true;}
         else{
             return false;
         }
@@ -119,18 +119,22 @@ public class LinkedListDeque<T>{
 
         LinkedListDeque<Integer> d1=new LinkedListDeque<>();
         d1.addFirst(0);
-        d1.addFirst(1);
-        d1.addLast(2);
-        d1.removeLast();
-        d1.removeLast();
-        d1.removeLast();
+        d1.removeFirst();
+        d1.addFirst(2);
+        d1.removeFirst();
         System.out.println(d1.isEmpty());
-        d1.addFirst(1024);
-        d1.addFirst(1025);
-        d1.addFirst(1026);
-        d1.printDeque();
-        System.out.println(d1.size());
-        System.out.println(d1.get(1));
+
+//        d1.addLast(2);
+//        d1.removeLast();
+//        d1.removeLast();
+//        d1.removeLast();
+//        System.out.println(d1.isEmpty());
+//        d1.addFirst(1024);
+//        d1.addFirst(1025);
+//        d1.addFirst(1026);
+//        d1.printDeque();
+//        System.out.println(d1.size());
+//        System.out.println(d1.get(1));
 
 //        for(int i=1;i<5;i++){
 //            d1.addLast(i);
