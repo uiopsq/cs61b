@@ -36,11 +36,12 @@ class ArrayDeque<T>{
     public int size(){
         return size;
     }
+
     public boolean isEmpty(){
-        return items[0].equals(null);
+        return items[0]==null;
 
     }
-    public T RemoveLast(){
+    public T removeLast(){
         double R = size / items.length;
         if(R < 0.25){
             resize(items.length/2);
@@ -68,5 +69,22 @@ class ArrayDeque<T>{
             System.out.print(items[i]+" ");
         }
     }
-
+//    public static void main(String[] args){
+//
+//        ArrayDeque<Integer> d1=new ArrayDeque<Integer>();
+//        d1.addFirst(0);
+//        d1.addFirst(1);
+//        d1.addLast(2);
+//        d1.removeLast();
+//        d1.removeLast();
+//        d1.removeLast();
+//        System.out.println(d1.isEmpty());
+//        d1.addFirst(1024);
+//        d1.addFirst(1025);
+//        d1.addFirst(1026);
+//        d1.printDeque();
+//        d1.removeFirst();
+//        System.out.println(d1.size());
+//        System.out.println(d1.get(1));
+//    }
 }
