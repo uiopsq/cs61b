@@ -12,12 +12,12 @@ public class LinkedListDeque<T>{
             next=n;
         }
     }
-    public LinkedListDeque(T i){
-        sentinel=new Node(null,null,null);
-        sentinel.next=new Node(i,sentinel,sentinel);
-        sentinel.prev=sentinel.next;
-        size=1;
-    }
+//    public LinkedListDeque(T i){
+//        sentinel=new Node(null,sentinel,sentinel);
+//        sentinel.next=new Node(i,sentinel,sentinel);
+//        sentinel.prev=sentinel.next;
+//        size=1;
+//    }
 
     public LinkedListDeque(){
         sentinel=new Node(null,sentinel,sentinel);
@@ -79,8 +79,9 @@ public class LinkedListDeque<T>{
     public int size(){
         return size;
     }
+
     public boolean isEmpty(){
-        if (sentinel.next==sentinel){return true;}
+        if (sentinel.next==null || sentinel.prev==null){return true;}
         else{
             return false;
         }
@@ -109,4 +110,26 @@ public class LinkedListDeque<T>{
             return getRecursive(index-1,p.next);
         }
     }
+
+
+//    public static void main(String[] args){
+//        LinkedListDeque<Integer> d1=new LinkedListDeque<>(2225);
+//        for(int i=1;i<5;i++){
+//            d1.addLast(i);
+//        }
+//        d1.printDeque();
+//        System.out.println();
+//        d1.addLast(12312312);
+//        d1.printDeque();
+//        System.out.println();
+//        d1.removeLast();
+//        d1.printDeque();
+//        System.out.println();
+//        d1.removeFirst();
+//        System.out.println();
+//        d1.printDeque();
+//        System.out.println(d1.size());
+//        System.out.println(d1.getRecursive(3));
+//        System.out.println(d1.get(3));
+//    }
 }
