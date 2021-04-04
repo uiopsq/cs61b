@@ -51,10 +51,11 @@ public class LinkedListDeque<T>{
             sentinel.prev=p;
         }
         else  {
-            sentinel.next = new Node(item, sentinel, sentinel.next);
+            Node p=new Node(item, sentinel, sentinel.next);
+            sentinel.next.prev=p;
+            sentinel.next =p;
         }
         size+=1;
-
     }
 
     public T removeLast(){
@@ -83,7 +84,7 @@ public class LinkedListDeque<T>{
     }
 
     public boolean isEmpty(){
-        if (sentinel.next==null || sentinel.prev==null||size==0){return true;}
+        if (sentinel.next==sentinel || sentinel.prev==sentinel||size==0){return true;}
         else{
             return false;
         }
@@ -114,15 +115,46 @@ public class LinkedListDeque<T>{
     }
 
 
-    public static void main(String[] args){
+//    public static void main(String[] args){
+//        LinkedListDeque<Integer> d1=new LinkedListDeque<>();
+//
+//
+//
+//        System.out.println(d1.sentinel.prev==null);
+//
+//
+//
+//
+//        d1.addFirst(0);
+//
+//        d1.addLast(1);
+//
+//        d1.get(0);
+//        d1.removeFirst();
+//        d1.removeLast();
+//
+//        d1.addFirst(5);
+//        System.out.println(d1.get(0));
+//        d1.addFirst(6);
+//        System.out.println(d1.get(0));
+//        d1.removeLast();
+//        System.out.println(d1.get(0));
+//        d1.addLast(8);
+//        System.out.println(d1.get(0));
+//
+//
 
 
-        LinkedListDeque<Integer> d1=new LinkedListDeque<>();
-        d1.addFirst(0);
-        d1.removeFirst();
-        d1.addFirst(2);
-        d1.removeFirst();
-        System.out.println(d1.isEmpty());
+
+
+
+
+
+
+
+
+        //System.out.println(d1.removeLast());
+        //System.out.println(d1.isEmpty());
 
 //        d1.addLast(2);
 //        d1.removeLast();
@@ -153,5 +185,5 @@ public class LinkedListDeque<T>{
 //        System.out.println(d1.size());
 //        System.out.println(d1.getRecursive(3));
 //        System.out.println(d1.get(3));
-    }
+//    }
 }

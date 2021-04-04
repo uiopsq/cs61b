@@ -1,6 +1,6 @@
 public class ArrayDeque<T>{
     private int size;
-    private T[] items;
+    private  T[] items;
     public ArrayDeque(){
         items=(T[])new Object[100];
         size=0;
@@ -44,7 +44,7 @@ public class ArrayDeque<T>{
     public T removeLast(){
         double R = size / items.length;
         if(R < 0.25){
-            resize(items.length/2);
+            resize(size*2);
         }
         T t=items[size-1];
         items[size-1]=null;
@@ -54,7 +54,7 @@ public class ArrayDeque<T>{
     public T removeFirst(){
         double R = size/items.length;
         if(R < 0.25){
-            resize(items.length/2);
+            resize(size*2);
         }
         T t=items[0];
 
@@ -72,6 +72,19 @@ public class ArrayDeque<T>{
 //    public static void main(String[] args){
 //
 //        ArrayDeque<Integer> d1=new ArrayDeque<Integer>();
+//
+//
+//
+//        for(int i=0;i<130;i++){
+//            d1.addLast(i);
+//        }
+//            d1.removeLast();
+//        d1.removeLast();
+//
+//        d1.printDeque();
+//        System.out.println(d1.size);
+
+
 //        d1.addFirst(0);
 //        d1.addFirst(1);
 //        d1.addLast(2);
@@ -86,5 +99,5 @@ public class ArrayDeque<T>{
 //        d1.removeFirst();
 //        System.out.println(d1.size());
 //        System.out.println(d1.get(1));
-//    }
+//  }
 }
