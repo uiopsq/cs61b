@@ -38,12 +38,15 @@ public class ArrayDeque<T>{
     }
 
     public boolean isEmpty(){
-        return items[0]==null;
-
+        if(items[0]==null ||size==0){
+            return true;
+        }
+        return false;
     }
     public T removeLast(){
+        if(isEmpty()){return null;}
         double R = size / items.length;
-        if(R < 0.25){
+        if(R < 0.25 && size>100){
             resize(size*2);
         }
         T t=items[size-1];
@@ -52,8 +55,9 @@ public class ArrayDeque<T>{
         return t;
     }
     public T removeFirst(){
+        if(isEmpty()){return null;}
         double R = size/items.length;
-        if(R < 0.25){
+        if(R < 0.25 && size >100){
             resize(size*2);
         }
         T t=items[0];
@@ -72,19 +76,27 @@ public class ArrayDeque<T>{
 //    public static void main(String[] args){
 //
 //        ArrayDeque<Integer> d1=new ArrayDeque<Integer>();
+
+//        d1.addLast(1);
+//        d1.addLast(2);
+//        d1.removeLast();
+//        d1.removeLast();
+//        System.out.println(d1.isEmpty());
+//        d1.addLast(3);
 //
-//
-//
-//        for(int i=0;i<130;i++){
+//        d1.printDeque();
+
+//        for(int i=0;i<500;i++){
 //            d1.addLast(i);
 //        }
-//            d1.removeLast();
+//        for(int i=0;i<300;i++){
+//        d1.removeLast();}
 //        d1.removeLast();
 //
 //        d1.printDeque();
 //        System.out.println(d1.size);
-
-
+//
+//
 //        d1.addFirst(0);
 //        d1.addFirst(1);
 //        d1.addLast(2);
@@ -99,5 +111,5 @@ public class ArrayDeque<T>{
 //        d1.removeFirst();
 //        System.out.println(d1.size());
 //        System.out.println(d1.get(1));
-//  }
+//    }
 }
